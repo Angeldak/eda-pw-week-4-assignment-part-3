@@ -36,8 +36,14 @@ function isFull() {
     }
 } //End isFull
 
-function removeItem() {
-
+function removeItem(item) {
+    let location = basket.indexOf(item);
+    if (location === -1) {
+        return null;
+    } else {
+        let removedItem = basket.splice(location, 1);
+        console.log(`Removed the item: ${removedItem}!`)
+    }
 } //End removeItem
 
 console.log("Basket is currently:", basket);
@@ -59,3 +65,9 @@ console.log(addItem("Ice Cream"));
 console.log(addItem("Soda"));
 console.log(addItem("Ketchup"));
 console.log("Basket is now", basket);
+listItems();
+
+console.log("Removing the Ice Cream, staying healthy!");
+removeItem("Ice Cream");
+console.log("Basket is now:", basket);
+console.log("Removing an item we didn't get, Tofu. Expect null:", removeItem("Tofu"));
