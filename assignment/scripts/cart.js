@@ -96,6 +96,7 @@ function updateDisplay() {
 addItemBtn.addEventListener("click", () => {
     addItem(addInput.value);
     addInput.value = "";
+
     updateDisplay();
 })
 
