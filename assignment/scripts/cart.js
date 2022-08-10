@@ -71,3 +71,5 @@ console.log("Removing the Ice Cream, staying healthy!");
 removeItem("Ice Cream");
 console.log("Basket is now:", basket);
 console.log("Removing an item we didn't get, Tofu. Expect null:", removeItem("Tofu"));
+
+//Start of fun stretch goal
