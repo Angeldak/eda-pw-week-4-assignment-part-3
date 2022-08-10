@@ -73,7 +73,7 @@ removeItem("Ice Cream");
 console.log("Basket is now:", basket);
 console.log("Removing an item we didn't get, Tofu. Expect null:", removeItem("Tofu"));
 
-//Start of fun stretch goal
+//Start of personal stretch goal - Check HTML
 const addInput = document.querySelector("#addInput");
 const removeInput = document.querySelector("#removeInput");
 const addItemBtn = document.querySelector("#addItem");
@@ -83,10 +83,7 @@ const updateList = document.querySelector("#updateList");
 const list = document.querySelector("ul");
 const listItem = document.querySelector("li");
 
-addItemBtn.addEventListener("click", () => {
-    addItem(addInput.value);
-    addInput.value = "";
-
+function updateDisplay() {
     list.innerHTML = "";
 
     for (items of basket) {
@@ -94,6 +91,12 @@ addItemBtn.addEventListener("click", () => {
         newListItem.innerText = items;
         list.appendChild(newListItem);
     }
+}
+
+addItemBtn.addEventListener("click", () => {
+    addItem(addInput.value);
+    addInput.value = "";
+    updateDisplay();
 })
 
 emptyCart.addEventListener("click", () => {
@@ -102,24 +105,12 @@ emptyCart.addEventListener("click", () => {
 })
 
 updateList.addEventListener("click", () => {
-    list.innerHTML = "";
-
-    for (items of basket) {
-        let newListItem = document.createElement("li");
-        newListItem.innerText = items;
-        list.appendChild(newListItem);
-    }
+    updateDisplay();
 })
 
 removeItemBtn.addEventListener("click", () => {
     removeItem(removeInput.value);
     removeInput.value = "";
 
-    list.innerHTML = "";
-
-    for (items of basket) {
-        let newListItem = document.createElement("li");
-        newListItem.innerText = items;
-        list.appendChild(newListItem);
-    }
+    updateDisplay();
 })
