@@ -39,6 +39,7 @@ function isFull() {
 function removeItem(item) {
     let location = basket.indexOf(item);
     if (location === -1) {
+        console.log(null);
         return null;
     } else {
         let removedItem = basket.splice(location, 1);
@@ -73,3 +74,52 @@ console.log("Basket is now:", basket);
 console.log("Removing an item we didn't get, Tofu. Expect null:", removeItem("Tofu"));
 
 //Start of fun stretch goal
+const addInput = document.querySelector("#addInput");
+const removeInput = document.querySelector("#removeInput");
+const addItemBtn = document.querySelector("#addItem");
+const removeItemBtn = document.querySelector("#removeItem");
+const emptyCart = document.querySelector("#emptyCart");
+const updateList = document.querySelector("#updateList");
+const list = document.querySelector("ul");
+const listItem = document.querySelector("li");
+
+addItemBtn.addEventListener("click", () => {
+    addItem(addInput.value);
+    addInput.value = "";
+
+    list.innerHTML = "";
+
+    for (items of basket) {
+        let newListItem = document.createElement("li");
+        newListItem.innerText = items;
+        list.appendChild(newListItem);
+    }
+})
+
+emptyCart.addEventListener("click", () => {
+    empty();
+    list.innerHTML = "";
+})
+
+updateList.addEventListener("click", () => {
+    list.innerHTML = "";
+
+    for (items of basket) {
+        let newListItem = document.createElement("li");
+        newListItem.innerText = items;
+        list.appendChild(newListItem);
+    }
+})
+
+removeItemBtn.addEventListener("click", () => {
+    removeItem(removeInput.value);
+    removeInput.value = "";
+
+    list.innerHTML = "";
+
+    for (items of basket) {
+        let newListItem = document.createElement("li");
+        newListItem.innerText = items;
+        list.appendChild(newListItem);
+    }
+})

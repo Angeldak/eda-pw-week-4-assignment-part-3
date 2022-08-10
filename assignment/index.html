@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Week 4 Assignment</title>
-  <script src="scripts/cart.js"></script>
+  <!-- Moving Script to bottom for DOM Manipulation -->
 </head>
 
 <body>
@@ -15,18 +15,20 @@
   <!-- Start of fun stretch -->
   <div>
     <div>
-      <input type="text">
+      <input type="text" id="addInput">
       <button id="addItem">Add Item</button>
     </div>
     <div>
-      <input type="text">
+      <input type="text" id="removeInput">
       <button id="removeItem">Remove Item</button>
     </div>
     <button id="updateList">Update List</button>
+    <button id="emptyCart">Empty Cart</button>
   </div>
   <ul>
 
   </ul>
+  <script src="scripts/cart.js"></script>
 </body>
 
 </html>
