@@ -6,9 +6,14 @@ let basket = [];
 const maxItems = 5;
 
 function addItem(item) {
-    if (item) {
-        basket.push(item);
-        return true;
+    if (isFull()) {
+        if (item) {
+            basket.push(item);
+            return true;
+        }
+    } else {
+        console.log(`Basket is full! Could not add ${item}.`)
+        return false;
     }
 } //End addItem
 
@@ -23,9 +28,13 @@ function empty() {
     console.log("Basket Emptied")
 } // End empty
 
-function ifFull() {
-
-} //End ifFull
+function isFull() {
+    if (basket.length < maxItems) {
+        return true;
+    } else {
+        return false;
+    }
+} //End isFull
 
 function removeItem() {
 
@@ -41,3 +50,12 @@ listItems();
 console.log("Emptying the basket:");
 empty();
 console.log("Basket is now:", basket);
+
+console.log("Adding 6 items. Expecting true 5 times and a false")
+console.log(addItem("Steak"));
+console.log(addItem("Potato"));
+console.log(addItem("Sushi"));
+console.log(addItem("Ice Cream"));
+console.log(addItem("Soda"));
+console.log(addItem("Ketchup"));
+console.log("Basket is now", basket);
