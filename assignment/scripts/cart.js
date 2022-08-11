@@ -26,7 +26,7 @@ function listItems() {
 function empty() {
     basket = [];
     console.log("Basket Emptied")
-} // End empty
+} //End empty
 
 function isFull() {
     if (basket.length < maxItems) {
